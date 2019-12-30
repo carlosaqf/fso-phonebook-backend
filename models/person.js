@@ -39,7 +39,11 @@ const personSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	number: String
+	number: String,
+	user: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User'
+	}
 })
 
 personSchema.set('toJSON', {
