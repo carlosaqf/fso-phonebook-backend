@@ -2,6 +2,7 @@ post http://localhost:3001/api/persons
 Content-Type: application/json
 
 {
-    "name": "Test Test",
-   "number": "02-23-456789"
+    "name": "Person One",
+   "number": "02-23-456789",
+   "userId": "5e0a85a6096e22f5c95a17a5"
 }

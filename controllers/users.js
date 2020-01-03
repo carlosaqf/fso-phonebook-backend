@@ -2,6 +2,8 @@ const bcrypt = require('bcrypt')
 const usersRouter = require('express').Router()
 const User = require('../models/user')
 
+
+// CREATE USER
 usersRouter.post('/', async (req,res,next) => {
     try {
         const body = req.body
@@ -21,6 +23,12 @@ usersRouter.post('/', async (req,res,next) => {
     }catch(exception){
         next(exception)
     }
+})
+
+// RETURN LIST OF USERS
+usersRouter.get('/', async (req,res) => {
+    const users = await User.find({})
+    res.json(users.map(u => u.toJSON()))
 })
 
 module.exports = usersRouter
