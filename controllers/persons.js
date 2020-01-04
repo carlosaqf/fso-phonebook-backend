@@ -6,7 +6,8 @@ const User = require('../models/user')
 
 // GET ALL PERSONS
 personRouter.get('/', async (req,res) => {
-	const persons = await Person.find({})
+	const persons = await Person
+		.find({}).populate('user')
 	res.json(persons.map(person => person.toJSON()))
 
 	// Person.find({}).then(persons => {

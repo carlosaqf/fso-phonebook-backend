@@ -27,7 +27,8 @@ usersRouter.post('/', async (req,res,next) => {
 
 // RETURN LIST OF USERS
 usersRouter.get('/', async (req,res) => {
-    const users = await User.find({})
+    const users = await User
+        .find({}).populate('phonebook')
     res.json(users.map(u => u.toJSON()))
 })
 
